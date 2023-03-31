@@ -10,13 +10,6 @@ def load_model():
     return model
 
 
-def getClass(Class):
-    label_file = open('../labels/labels.txt')
-    lines = label_file.readlines()
-    label_file.close()
-    return lines[Class].replace('\n', '')
-
-
 def predict(model, picList):
     # seems that input a list has a weaker performance
     # return model(picList)
@@ -67,13 +60,8 @@ if __name__ == '__main__':
     print('Load data done:', round(time.thread_time() - load_data_start_time, 3), 's')
     predict_start_time = time.thread_time()
     Results = predict(Model, Data)
-    # for result in Results:
-    #     print(result)
+    print('Predict done:', round(time.thread_time() - predict_start_time, 3), 's')
+    output_result_start_time = time.thread_time()
     plot_result(Results, '../results', '../images')
-    # note that might have multiple results in one graph should be all handled properly
-    # for Result in Results:
-    #     print('=' * 50)
-    #     print('Class:', getClass(Result.cls.int()))
-    #     print('Confidence:', round(float(Result.conf) * 100, 2), '%')
-    #     print('Position:', Result.xywhn, Result.xyxyn)
-    #     print('Predict done:', round(time.thread_time() - predict_start_time, 3), 's')
+    print('Output result done:', round(time.thread_time() - output_result_start_time, 3), 's')
+    print('Whole process done:', round(time.thread_time() - load_data_start_time, 3), 's')
