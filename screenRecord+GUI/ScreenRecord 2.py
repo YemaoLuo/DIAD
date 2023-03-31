@@ -1,11 +1,11 @@
+import threading
 from datetime import datetime
-from PIL import ImageGrab
-from cv2 import *
+
 import numpy as np
+from PIL import ImageGrab
 from cv2 import CAP_PROP_FRAME_WIDTH, CAP_PROP_FRAME_HEIGHT, CAP_PROP_FRAME_COUNT, CAP_PROP_FPS, VideoCapture, \
     COLOR_RGB2BGR, cvtColor, VideoWriter, VideoWriter_fourcc
 from pynput import keyboard
-import threading
 
 
 def record_screen():
