@@ -31,12 +31,12 @@ def load_pic_data(path):
 if __name__ == '__main__':
     load_model_start_time = time.thread_time()
     Model = load_model()
-    print('Load model done:', round(time.thread_time() - load_model_start_time, 3), 'ms')
+    print('Load model done:', round(time.thread_time() - load_model_start_time, 3), 's')
     load_data_start_time = time.thread_time()
     Data = load_pic_data('../images')
-    print('Load data done:', round(time.thread_time() - load_data_start_time, 3), 'ms')
+    print('Load data done:', round(time.thread_time() - load_data_start_time, 3), 's')
     predict_start_time = time.thread_time()
     Results = predict(Model, Data)
     for result in Results:
         print(result)
-    print('Predict done:', round(time.thread_time() - predict_start_time, 3), 'ms')
+    print('Predict done:', round(time.thread_time() - predict_start_time, 3), 's')
