@@ -10,12 +10,12 @@ def load_model():
     return model
 
 
-def predict(model, picList):
+def predict(model, picList, conf):
     # seems that input a list has a weaker performance
     # return model(picList)
     results = []
     for pic in picList:
-        ResultTemps = model(pic)
+        ResultTemps = model.predict(source=pic, conf=conf, verbose=False, max_det=10)
         # index = 0
         # for ResultTemp in ResultTemps:
         #     ResultTemps[index] = ResultTemp.boxes
@@ -59,7 +59,7 @@ if __name__ == '__main__':
     Data = load_pic_data('../images')
     print('Load data done:', round(time.thread_time() - load_data_start_time, 3), 's')
     predict_start_time = time.thread_time()
-    Results = predict(Model, Data)
+    Results = predict(Model, Data, 0.8)
     print('Predict done:', round(time.thread_time() - predict_start_time, 3), 's')
     output_result_start_time = time.thread_time()
     plot_result(Results, '../results', '../images')
