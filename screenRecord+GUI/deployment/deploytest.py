@@ -39,8 +39,8 @@ def preict_one_img(img_path):
     print(class_id)
     img = img.squeeze(0)
     new_img = np.transpose(img, (1, 2, 0))
-    # plt.imshow(new_img)
-    # plt.title("predicted class: %s .  probability: %3f" % (classes[class_id], proba))
+    plt.imshow(new_img)
+    plt.title("predicted class: %s .  probability: %3f" % (classes[class_id], proba))
     plt.show()
 
 if __name__ == '__main__':
