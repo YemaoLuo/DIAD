@@ -1,0 +1,12 @@
+blade
+scissors
+knife
+dagger
+SwissArmyKnife
+PlasticBottle
+Cans
+VacuumCup
+GlassBottle
+CartonDrinks
+Tin
+SprayCans
