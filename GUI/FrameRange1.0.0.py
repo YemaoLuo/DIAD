@@ -21,6 +21,9 @@ class FrameRange(QMainWindow):
         self.initUI()
 
     def initUI(self):
+        CurrentImage = ImageGrab.grab()  # 获得当前屏幕
+        # screen_w, screen_h = p.size  # 获得当前屏幕的大小
+        CurrentImage.save("ScreenShot.jpg")
         self.setWindowTitle(self.title)
         # self.setStyleSheet('background-image: url(ScreenShot.jpg); background-repeat: no-repeat; background-position: center;')
         self.setGeometry(self.left, self.top, self.width, self.height)
@@ -34,7 +37,6 @@ class FrameRange(QMainWindow):
         self.save_action.triggered.connect(self.confirm)
         # confirmbutton
         self.Confirmbutton = QPushButton(self)
-        # self.button.setToolTip('Click to capture the selected area')
         self.Confirmbutton.move(0,0)
         self.Confirmbutton.setFixedSize(150, 80)
         self.Confirmbutton.clicked.connect(self.confirm)
@@ -121,7 +123,7 @@ if __name__ == '__main__':
     screen_w, screen_h = p.size  # 获得当前屏幕的大小
     p.save("ScreenShot.jpg")
     app = QApplication(sys.argv)
-    ex = FrameRange()
+    SelectWindow = FrameRange()
     # ex.setStyleSheet('background-image: url(ScreenShot.jpg); background-repeat: no-repeat; background-position: center;')
-    ex.setStyleSheet('background-image: url(ScreenShot.jpg); background-repeat: no-repeat; background-position: center;}')
+    SelectWindow.setStyleSheet('background-image: url(ScreenShot.jpg); background-repeat: no-repeat; background-position: center;}')
     sys.exit(app.exec_())
