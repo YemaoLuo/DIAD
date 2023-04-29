@@ -7,12 +7,8 @@ from PyQt5.QtCore import QTimer
 import mss
 from deploy import load_model, predict, plot_result
 
-class StartDetect:
-    def __init__(self, x1, y1, x2, y2):
-        self.main_window = MainWindow(x1, y1, x2, y2)
-
 class MainWindow(QWidget):
-    def __init__(self, x1, y1, x2, y2):
+    def __init__(self):
         super().__init__()
 
         desktop = QDesktopWidget()
@@ -33,8 +29,8 @@ class MainWindow(QWidget):
         self.screenshot_label = QLabel(self)
         self.screenshot_label.setMinimumSize(screen_width/2-250, screen_height-500)
         self.screenshot_label.setAlignment(Qt.AlignCenter)
-        # self.region=(900,20,900,800)
-        self.region = (x1, y1, x2 - x1, y2 - y1)
+        self.region=(900,20,900,800)
+
         self.screenshot(self.region)
         
         self.screenshot_label.setStyleSheet("border: 2px solid black;")
