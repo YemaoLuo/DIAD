@@ -1,6 +1,5 @@
 import sys
 from time import sleep
-import PredictMethod
 from PIL import ImageGrab
 from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, QDesktopWidget, QLabel, QPushButton,QVBoxLayout, QWidget, QHBoxLayout
 from PyQt5.QtGui import QPainter, QPen, QColor
@@ -209,5 +208,4 @@ if __name__ == '__main__':
     startwindow.show()
     selectwindow = FrameRange(startwindow)
     selectwindow.hide()
-    Model = PredictMethod.load_model()
     sys.exit(app.exec_())
