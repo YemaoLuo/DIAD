@@ -6,6 +6,23 @@ import psutil
 from PyQt5.QtCore import QTimer
 import mss
 from deploy import load_model, predict, plot_result
+from PyQt5.QtCore import QThread, pyqtSignal
+
+class ImageDetectionThread(QThread):
+    result_ready = pyqtSignal(object)
+
+    def __init__(self, region):
+        super().__init__()
+        self.region = region
+    def run(self):
+        x, y, width, height = self.region
+        with mss.mss() as sct:
+            monitor = {"top": y, "left": x, "width": width, "height": height}
+            mss_image = sct.grab(monitor)
+        Model = load_model()
+        detected_image = predict(Model, mss_image)
+        self.result_ready.emit(detected_image)
+
 
 class MainWindow(QWidget):
     def __init__(self):
@@ -37,9 +54,11 @@ class MainWindow(QWidget):
 
 
         leftLayout = QVBoxLayout(self.screenshot_label)
-        leftLayout.addWidget(self.screenshot_label)  
+        leftLayout.addWidget(self.screenshot_label)
 
-        
+        self.image_detection_thread = ImageDetectionThread(self.region)
+        self.image_detection_thread.result_ready.connect(self.handle_detection_result)
+
         progressWrapper = QWidget(self)
         progressWrapperLayout = QVBoxLayout(progressWrapper)
 
@@ -99,9 +118,9 @@ class MainWindow(QWidget):
 
         
         self.timer = QTimer(self)
-        self.timer.timeout.connect(lambda: self.screendetect(self.region))
+        # self.timer.timeout.connect(lambda: self.screendetect(self.region))
+        self.timer.timeout.connect(self.start_detection)
 
-        
         mainLayout.addLayout(topLayout)
         mainLayout.addLayout(bottomLayout)
 
@@ -118,7 +137,7 @@ class MainWindow(QWidget):
             self.timer.stop()
             self.button.setText("开始检测")
         else:
-            self.timer.start(100)  
+            self.timer.start(100)
             self.button.setText("停止检测")
 
     def monitor(self):
@@ -175,14 +194,13 @@ class MainWindow(QWidget):
                                                       scale_mode,
                                                       Qt.SmoothTransformation))
 
-    def screendetect(self, region):
-        x, y, width, height = region
-        with mss.mss() as sct:
-            monitor = {"top": y, "left": x, "width": width, "height": height}
-            mss_image = sct.grab(monitor)
-        Model = load_model()
-        detected_image = predict(Model, mss_image)
+    def start_detection(self):
+        self.image_detection_thread.start()
+
+
+    def handle_detection_result(self, detected_image):
         self.display_result(detected_image)
+
 
     def display_result(self, cv2_image):
         height, width, channels = cv2_image.shape
