@@ -2,7 +2,7 @@ import sys
 from time import sleep
 from PIL import ImageGrab
 from PyQt5.QtWidgets import QApplication, QMainWindow, QAction, QDesktopWidget, QLabel, QPushButton,QVBoxLayout, QWidget, QHBoxLayout
-from PyQt5.QtGui import QPainter, QPen, QColor
+from PyQt5.QtGui import QPainter, QPen, QColor, QFont
 from PyQt5.QtCore import Qt, QPoint, QRect
 from SDGUI.startdetect import StartDetect
 
@@ -10,8 +10,14 @@ class StartWindow(QWidget):
     def __init__(self):
         super().__init__()
 
+        self.font = QFont()
+        self.font.setFamily("Microsoft YaHei")
+        # self.font.setWeight(10)
+        self.font.setBold(True)
+
         # Set the window size and title
-        self.setGeometry(100, 100,880, 560)
+        # self.setGeometry(100, 100,880, 560)
+        self.setGeometry(0, 35, 880, 660)
         self.setWindowTitle('Start Window')
 
         # Load image and set it as the background
@@ -22,12 +28,14 @@ class StartWindow(QWidget):
         # Create a QVBoxLayout to hold the button
         layout = QVBoxLayout()
         self.label = QLabel('Dangerous Item Auto Detection', self)
+        # self.label.setFont(self.font)
         self.label.setStyleSheet(
-            'font: 48px "YouYuan"; color: black;')
+            'font: 48px "Microsoft JhengHei"; color: black;font-weight: bold;')
         self.label.setGeometry(0, 0, self.width(), self.height())
         self.label.setAlignment(Qt.AlignCenter)
         # Create a QPushButton and add it to the layout
         self.Startbutton = QPushButton("Select Detection Area",self)
+        self.Startbutton.setFont(self.font)
         # self.Startbutton.setGeometry(0, 0, 200, 50)
         # self.Startbutton.setAlignment(Qt.AlignCenter)
         self.Startbutton.setFixedSize(300, 80)
@@ -77,11 +85,11 @@ class StartWindow(QWidget):
     def open_new_window(self):
         # Create a new window with a size of 400x400 and a blank background
         self.hide()
-        selectwindow.setStyleSheet(
-            'background-image: url(ScreenShot.jpg); background-repeat: no-repeat; background-position: center;}')
         sleep(1)
         CurrentImage = ImageGrab.grab()  # 获得当前屏幕
         CurrentImage.save("ScreenShot.jpg")
+        selectwindow.setStyleSheet(
+            'background-image: url(ScreenShot.jpg); background-repeat: no-repeat; background-position: center;}')
         selectwindow.show()
 
     def open_start_detect_window(self, x1, y1, x2, y2):
@@ -132,10 +140,6 @@ class FrameRange(QMainWindow):
                               background-image: url(Confirm.svg);
                               border-color: green;
                           }
-                          QPushButton:pressed {
-                              background-color: #2e6b2e;
-                              border-color: #2e6b2e;
-                          }
                       """)
         #exitbutton
         self.Exitbutton=QPushButton(self)
@@ -152,10 +156,6 @@ class FrameRange(QMainWindow):
                          background-image: url(Exit.svg);
                          border-color: red;
                     }
-                    QPushButton:pressed {
-                        background-color: red;
-                        border-color: red;
-                    }
                 """)
         self.show()
     def center(self):
@@ -171,7 +171,8 @@ class FrameRange(QMainWindow):
         painter.setPen(QPen(QColor(61, 145, 64, 200), 5, Qt.DotLine))
         painter.setBrush(QColor(61, 145, 64, 0))
         painter.drawRect(QRect(self.begin, self.end))
-        self.Confirmbutton.move(self.end)
+        self.Confirmbutton.move(self.end.x()+60,self.end.y())
+        self.Exitbutton.move(self.end.x()-30,self.end.y())
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
