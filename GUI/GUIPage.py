@@ -171,8 +171,8 @@ class FrameRange(QMainWindow):
         painter.setPen(QPen(QColor(61, 145, 64, 200), 5, Qt.DotLine))
         painter.setBrush(QColor(61, 145, 64, 0))
         painter.drawRect(QRect(self.begin, self.end))
-        self.Confirmbutton.move(self.end.x()+60,self.end.y())
-        self.Exitbutton.move(self.end.x()-30,self.end.y())
+        self.Confirmbutton.move(self.begin.x(),self.end.y())
+        self.Exitbutton.move(self.begin.x()-90,self.end.y())
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
