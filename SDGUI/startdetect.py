@@ -1,8 +1,9 @@
-from PyQt5 import QtWidgets
+
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QPixmap, QImage, QFont, QColor
+
 from PyQt5.QtWidgets import QApplication, QWidget, QHBoxLayout, QVBoxLayout, QFrame, QLabel, QProgressBar, QPushButton, \
-    QDesktopWidget, QMainWindow, QGraphicsOpacityEffect, QGraphicsDropShadowEffect
+    QDesktopWidget, QMainWindow, QGraphicsDropShadowEffect
 import psutil
 from PyQt5.QtCore import QTimer
 import mss
@@ -98,15 +99,18 @@ class MainWindow(QWidget):
         self.rightFrame.setFixedHeight(screen_height-500)
 
         self.screenshot_label = QLabel(self)
-        self.screenshot_label.setStyleSheet("background-color: rgba(255, 255, 255, 128);border-top-left-radius: 20px;border-bottom-left-radius: 20px;")
-
         self.screenshot_label.setMinimumSize(screen_width/2-250, screen_height-500)
+        pixmap = QPixmap('cat.png')
+        self.screenshot_label.setPixmap(pixmap)
+        self.screenshot_label.setStyleSheet("background-color: rgba(255, 255, 255);border-top-left-radius: 20px;border-bottom-left-radius: 20px;")
+
+
         self.screenshot_label.setAlignment(Qt.AlignCenter)
         self.add_shadow(self.screenshot_label)
         self.screenshot_label.lower()
         # self.region=(900,20,900,800)
         self.region = (x1, y1, x2 - x1, y2 - y1)
-        self.screenshot(self.region)
+        # self.screenshot(self.region)
         
         # self.screenshot_label.setStyleSheet("border: 2px solid black;")
 
@@ -134,11 +138,14 @@ class MainWindow(QWidget):
 
         self.progressBar1 = QProgressBar(self)
         self.progressBar1.setFixedWidth(150)
+        self.progressBar1.setFont(self.font)
         self.progressBar1.setObjectName("progressBar1")
         self.progressBar2 = QProgressBar(self)
         self.progressBar2.setFixedWidth(150)
+        self.progressBar2.setFont(self.font)
         self.progressBar2.setObjectName("progressBar2")
         self.progressBar3 = QProgressBar(self)
+        self.progressBar3.setFont(self.font)
         self.progressBar3.setObjectName("progressBar3")
         self.progressBar3.setFixedWidth(150)
 
@@ -312,20 +319,20 @@ class MainWindow(QWidget):
 
     
     #初始截图展示
-    def screenshot(self, region):
-
-        x, y, width, height = region
-        with mss.mss() as sct:
-            monitor = {"top": y, "left": x, "width": width, "height": height}
-            mss_image = sct.grab(monitor)
-        time.sleep(1)
-        qim = QImage(mss_image.rgb, mss_image.width, mss_image.height, QImage.Format_RGB888)
-        pixmap = QPixmap.fromImage(qim)
-        self.screenshot_label.setFixedSize(self.screenshot_label.width(), self.screenshot_label.height())
-        scale_mode = Qt.KeepAspectRatio
-        self.screenshot_label.setPixmap(pixmap.scaled(self.screenshot_label.size(),
-                                                      scale_mode,
-                                                      Qt.SmoothTransformation))
+    # def screenshot(self, region):
+    #
+    #     x, y, width, height = region
+    #     with mss.mss() as sct:
+    #         monitor = {"top": y, "left": x, "width": width, "height": height}
+    #         mss_image = sct.grab(monitor)
+    #     time.sleep(1)
+    #     qim = QImage(mss_image.rgb, mss_image.width, mss_image.height, QImage.Format_RGB888)
+    #     pixmap = QPixmap.fromImage(qim)
+    #     self.screenshot_label.setFixedSize(self.screenshot_label.width(), self.screenshot_label.height())
+    #     scale_mode = Qt.KeepAspectRatio
+    #     self.screenshot_label.setPixmap(pixmap.scaled(self.screenshot_label.size(),
+    #                                                   scale_mode,
+    #                                                   Qt.SmoothTransformation))
 
     # def screendetect(self, region):
     #
