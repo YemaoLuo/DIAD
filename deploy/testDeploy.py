@@ -1,6 +1,7 @@
 import os
 import time
 
+import cv2
 from ultralytics import YOLO
 
 
@@ -10,9 +11,17 @@ def load_model():
 
 
 def predict(model, picList):
+    # seems that input a list has a weaker performance
+    # return model(picList)
     results = []
     for pic in picList:
-        results.append(model(pic))
+        ResultTemps = model(pic)
+        # index = 0
+        # for ResultTemp in ResultTemps:
+        #     ResultTemps[index] = ResultTemp.boxes
+        #     index += 1
+        results.append(ResultTemps)
+        #print(ResultTemps._keys)
     return results
 
 
@@ -28,6 +37,21 @@ def load_pic_data(path):
     return data_path
 
 
+def plot_result(input_results, result_path, data_path):
+    all_dist = os.listdir(data_path)
+    pic_dist = []
+    for dist in all_dist:
+        if dist.find('.png') == -1 and dist.find('.jpg') == -1 \
+                and dist.find('.jpeg') == -1:
+            continue
+        pic_dist.append('Result_' + dist)
+    index = 0
+    for input_result in input_results:
+        res_plotted = input_result[0].plot(show_conf=False)
+        cv2.imwrite(result_path + '/' + pic_dist[index], res_plotted)
+        index += 1
+
+
 if __name__ == '__main__':
     load_model_start_time = time.thread_time()
     Model = load_model()
@@ -37,6 +61,8 @@ if __name__ == '__main__':
     print('Load data done:', round(time.thread_time() - load_data_start_time, 3), 's')
     predict_start_time = time.thread_time()
     Results = predict(Model, Data)
-    for result in Results:
-        print(result)
     print('Predict done:', round(time.thread_time() - predict_start_time, 3), 's')
+    output_result_start_time = time.thread_time()
+    plot_result(Results, '../results', '../images')
+    print('Output result done:', round(time.thread_time() - output_result_start_time, 3), 's')
+    print('Whole process done:', round(time.thread_time() - load_data_start_time, 3), 's')
