@@ -21,6 +21,7 @@ def predict(model, picList):
         #     ResultTemps[index] = ResultTemp.boxes
         #     index += 1
         results.append(ResultTemps)
+        #print(ResultTemps._keys)
     return results
 
 
@@ -46,7 +47,7 @@ def plot_result(input_results, result_path, data_path):
         pic_dist.append('Result_' + dist)
     index = 0
     for input_result in input_results:
-        res_plotted = input_result[0].plot()
+        res_plotted = input_result[0].plot(show_conf=False)
         cv2.imwrite(result_path + '/' + pic_dist[index], res_plotted)
         index += 1
 
