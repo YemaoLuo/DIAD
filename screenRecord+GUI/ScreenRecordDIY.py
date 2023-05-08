@@ -11,10 +11,12 @@ from tkinter.ttk import Combobox
 from tkinter.filedialog import asksaveasfilename
 from tkinter.filedialog import askopenfilename
 from tkinter import messagebox
-
+import pyautogui as pag
 
 class App:
     def __init__(self):
+        self.StartSelectEnd =0
+        self.EndSelectEnd=0
         self.MainWindow = Tk()
         self.MainWindow.title('录屏')
         self.MainWindow.resizable(0, 0)
@@ -22,7 +24,7 @@ class App:
         self.MainWindow.iconbitmap('icon.ico')
 
         self.res_frame = Frame(self.MainWindow)
-        self.res_frame.configure(height=100, width=3000)
+        self.res_frame.configure(height=200, width=5000)
         #调节视频分辨率
         self.lb_resolution = Label(self.res_frame, text='视频分辨率')
         self.lb_resolution.pack(side=LEFT, padx=5)
@@ -56,9 +58,9 @@ class App:
         self.res_frame.grid(row=0, column=0, padx=5, pady=5, sticky=E + S + W + N)
 
         self.save_frame = Frame(self.MainWindow)
-        self.btn_save = Button(self.save_frame, text='选择视频保存地址', width=8, height=1, command=self.saveFile, relief=SOLID,
+        self.btn_save = Button(self.save_frame, text='选择视频保存地址', width=15, height=1, command=self.saveFile, relief=SOLID,
                                bd=1)
-        self.btn_save.pack(side=RIGHT, padx=5)
+        self.btn_save.pack(side=RIGHT, padx=10)
         self.save_frame.grid(row=1, column=0, padx=5, pady=5, sticky=E + S + W + N)
         self.filename = StringVar()
         # self.filename.set('outvideo.mp4')
@@ -70,9 +72,10 @@ class App:
         self.btn_start = Button(self.btn_frame, text="开始录制", command=self.start_record, height=1, width=12,
                                 relief=SOLID, bd=1)
         self.btn_start.pack(side=LEFT, padx=5)
-        #调整选框区域
-        cv2.namedWindow('image')
-        self.btn_Select = Button(self.btn_frame, text="调整选区（默认全屏）", command=cv2.setMouseCallback('image', self.SelectArea), height=1, width=12,
+        #选择起始点
+        # cv2.namedWindow('image')
+        # # self.btn_frame = Frame(self.MainWindow)
+        self.btn_Select = Button(self.btn_frame, text="选择屏幕录制区域", command=self.SelectStartPoint, height=1, width=12,
                                 relief=SOLID, bd=1)
         self.btn_Select.pack(side=LEFT, padx=5)
         #结束录制按钮
@@ -120,24 +123,29 @@ class App:
 
     def on_press(self,key): #热键处理
         try:
-            if key.char == '\x19':
+            if key == keyboard.Key.esc:
                 self.flag=True
-            elif key.char == '\x0b' and not self.recordislive:
+            elif key == keyboard.Key.space and not self.recordislive:
                 self.start_record()
+            elif key==keyboard.Key.up:
+                self.StartSelectEnd=1
+            elif key==keyboard.Key.down:
+                self.EndSelectEnd=1
         except:
             pass
     def video_record(self):
             self.recordislive = True
-            p = ImageGrab.grab()  # 获得当前屏幕
+            p = ImageGrab.grab((position1_x,position1_y,position2_x,position2_y))  # 获得当前屏幕
             screen_w, screen_h = p.size  # 获得当前屏幕的大小
             re = 10 - self.cb_resolution.current()  # 视频分辨率缩小
             out_w = int(screen_w * re / 10)
             out_h = int(screen_h * re / 10)
             fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')  # 编码格式
-            tempvideo = cv2.VideoWriter('~temp.mp4', fourcc, float(self.cb_fps.get()[:-1]), (out_w, out_h))  # 输出文件命名为test.avi,帧率为20，可以自己设置
+            tempvideo = cv2.VideoWriter('~temp.mp4', fourcc, 20, (out_w, out_h))  # 输出文件命名为test.avi,帧率可以自己设置
             start_time = time.time()
+            # int(self.cb_fps.get()[:-1])
             while True:
-                im = ImageGrab.grab()
+                im = ImageGrab.grab((position1_x, position1_y, position2_x, position2_y))
                 im = cv2.cvtColor(np.array(im), cv2.COLOR_RGB2BGR)  # 转为opencv的BGR格式
                 im = cv2.resize(im, (out_w, out_h), interpolation=cv2.INTER_AREA)
                 tempvideo.write(im)
@@ -203,19 +211,37 @@ class App:
                     return
                 self.running.set('正在录制' + '.' * i)
                 time.sleep(0.1)
-    def SelectArea(event, x, y, flags, param):
-        global img, position1, position2
-        if event == cv2.EVENT_LBUTTONDOWN:  # 按下左键
-            position1 = (x, y)
-            position2 = None
-
-        elif event == cv2.EVENT_MOUSEMOVE and flags == cv2.EVENT_FLAG_LBUTTON:  # 按住左键拖曳不放开
-            position2 = (x, y)
-
-        elif event == cv2.EVENT_LBUTTONUP:  # 放开左键
-            position2 = (x, y)
 
 
+    def SelectStartPoint(self):
+        self.StartSelectEnd = 0
+        global position1_x,position1_x
+        messagebox.showinfo("起始点", "请把鼠标放到起始点,并按下PgUp")
+        while(self.StartSelectEnd==0):
+            time.sleep(1)
+            position1_x, position1_y=pag.position()
+            print("position1_x:")
+            print(position1_x)
+
+        messagebox.showinfo("终止点","请把鼠标放到终止点,并按下PgDn")
+        time.sleep(1)
+        global position2_x, position2_y
+        while (self.EndSelectEnd == 0):
+            time.sleep(1)
+            position2_x, position2_y = pag.position()
+            print("position2_x:")
+            print(position2_x)
+        img = ImageGrab.grab((position1_x,position1_y,position2_x,position2_y));
+        img.show()
+    def SelectEndPoint(self):
+        global position2_x,position2_y
+        position2_x,position2_y=pag.position()
+    def ClearPoint(self):
+        global position1_x,position1_y,position2_x,position2_y
+        WholeScreen = ImageGrab.grab()
+        position1_x = 0
+        position1_y = 0
+        position2_x, position2_y = WholeScreen.size
     def start_record(self):  # 录屏启动
         path = self.lb_save.cget('text')
         if path == '':
@@ -249,13 +275,15 @@ class App:
     def stop_record(self):
         self.flag = True
 
-    def     deltempfile(self):
+    def deltempfile(self):
         path = '~temp.mp4'
         if os.path.exists(path):  # 如果文件存在
             os.remove(path)
 if __name__ == '__main__':
-    position1 = None
-    position2 = None
-    img = None
+    WholeScreen = ImageGrab.grab()
+    position1_x = 0
+    position1_y=0
+    position2_x,position2_y = WholeScreen.size
+    print(position2_y)
     app=App()
 
