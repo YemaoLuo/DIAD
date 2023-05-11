@@ -35,7 +35,6 @@ table {
   padding: 5px;
   border: 1px solid #E6E6E6;
 }
-
 #environment tr:nth-child(odd) {
   background-color: #f6f6f6;
 }
@@ -83,14 +82,12 @@ span.xpassed,
   font-size: 12px;
   width: 100%;
 }
-
 #results-table th,
 #results-table td {
   padding: 5px;
   border: 1px solid #E6E6E6;
   text-align: left;
 }
-
 #results-table th {
   font-weight: bold;
 }
@@ -109,7 +106,6 @@ span.xpassed,
   padding: 5px;
   white-space: pre-wrap;
 }
-
 .log:only-child {
   height: inherit;
 }
@@ -122,7 +118,6 @@ div.image {
   overflow: hidden;
   width: 320px;
 }
-
 div.image img {
   width: 320px;
 }
@@ -135,7 +130,6 @@ div.video {
   overflow: hidden;
   width: 320px;
 }
-
 div.video video {
   overflow: hidden;
   width: 320px;
@@ -178,17 +172,14 @@ div.video video {
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
 }
-
 .inactive .sort-icon {
   /*finish triangle*/
   border-top: 8px solid #E6E6E6;
 }
-
 .asc.active .sort-icon {
   /*finish triangle*/
   border-bottom: 8px solid #999;
 }
-
 .desc.active .sort-icon {
   /*finish triangle*/
   border-top: 8px solid #999;

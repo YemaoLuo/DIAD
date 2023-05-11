@@ -254,7 +254,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
 <h1>report.html</h1>
-<p>Report generated on 11-May-2023 at 11:26:35 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
+<p>Report generated on 11-May-2023 at 12:00:32 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
     v3.2.0</p>
 <h2>Environment</h2>
 <table id="environment">
@@ -280,14 +280,14 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
     </tr>
 </table>
 <h2>Summary</h2>
-<p>1 tests ran in 3.51 seconds. </p>
+<p>2 tests ran in 9.15 seconds. </p>
 <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter"
                                                                                      data-test-result="passed"
-                                                                                     disabled="true" hidden="true"
+                                                                                     hidden="true"
                                                                                      name="filter_checkbox"
                                                                                      onChange="filterTable(this)"
                                                                                      type="checkbox"/><span
-        class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true"
+        class="passed">1 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true"
                                                hidden="true" name="filter_checkbox" onChange="filterTable(this)"
                                                type="checkbox"/><span class="skipped">0 skipped</span>, <input
         checked="true" class="filter" data-test-result="failed" hidden="true" name="filter_checkbox"
@@ -321,15 +321,15 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
     <tr>
         <td class="col-result">Failed</td>
         <td class="col-name">tests/test_startdetect.py::test</td>
-        <td class="col-duration">0.37</td>
+        <td class="col-duration">0.25</td>
         <td class="col-links"></td>
     </tr>
     <tr>
         <td class="extra" colspan="4">
-            <div class="log">def test():<br/> app = QApplication([])<br/> x1, y1, x2, y2 = 900, 20, 1800, 820 # Define
-                your region here<br/> window = GUIPage.StartDetect(x1, y1, x2, y2)<br/>&gt; assert
-                window.windowTitle().title() == &#x27;DIAD&#x27;<br/><span class="error">E       AssertionError: assert &#x27;Diad&#x27; == &#x27;DIAD&#x27;</span><br/><span
-                        class="error">E         - DIAD</span><br/><span class="error">E         + Diad</span><br/><br/>tests/test_startdetect.py:18:
+            <div class="log">def test():<br/> app = QApplication([])<br/> x1, y1, x2, y2 = 900, 20, 1800, 820<br/>
+                window = GUIPage.StartDetect(x1, y1, x2, y2)<br/>&gt; assert window.windowTitle().title() == &#x27;DIAD&#x27;<br/><span
+                        class="error">E       AssertionError: assert &#x27;Diad&#x27; == &#x27;DIAD&#x27;</span><br/><span
+                        class="error">E         - DIAD</span><br/><span class="error">E         + Diad</span><br/><br/>tests/test_startdetect.py:11:
                 AssertionError<br/> ------------------------------Captured stderr call------------------------------
                 <br/>QCssParser::parseColorValue: Specified color with alpha value but no alpha given: &#x27;rgba 255,
                 255, 255&#x27;
@@ -351,7 +351,7 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 QCssParser::parseColorValue: Specified color with alpha value but no alpha given: &#x27;rgba 0, 0, 0&#x27;
                 QCssParser::parseColorValue: Specified color with alpha value but no alpha given: &#x27;rgba 0, 0, 0&#x27;
                 QCssParser::parseColorValue: Specified color with alpha value but no alpha given: &#x27;rgba 0, 0, 0&#x27;
-                qt.qpa.fonts: Populating font family aliases took 76 ms. Replace uses of missing font family &quot;Microsoft
+                qt.qpa.fonts: Populating font family aliases took 79 ms. Replace uses of missing font family &quot;Microsoft
                 YaHei&quot; with one that exists to avoid this cost.
                 QCssParser::parseColorValue: Specified color with alpha value but no alpha given: &#x27;rgba 34, 221,
                 122&#x27;
@@ -362,6 +362,383 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
                 122&#x27;
                 QCssParser::parseColorValue: Specified color with alpha value but no alpha given: &#x27;rgba 0, 128, 0&#x27;
                 Unknown property box-shadow
+                <br/></div>
+        </td>
+    </tr>
+    </tbody>
+    <tbody class="passed results-table-row">
+    <tr>
+        <td class="col-result">Passed</td>
+        <td class="col-name">tests/test_detectTest.py::test_deploy</td>
+        <td class="col-duration">5.90</td>
+        <td class="col-links"></td>
+    </tr>
+    <tr>
+        <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stderr call------------------------------ <br/>
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_35_05_187.png: 640x512 2
+                PlasticBottles, 54.0ms
+                Speed: 0.6ms preprocess, 54.0ms inference, 1.1ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_34_07_015.png: 416x640 3
+                PlasticBottles, 1 VacuumCup, 43.2ms
+                Speed: 0.3ms preprocess, 43.2ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_39_15_937.png: 640x576 1
+                PlasticBottle, 1 VacuumCup, 51.5ms
+                Speed: 0.4ms preprocess, 51.5ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_07_31_906.png: 640x512 1 GlassBottle,
+                50.4ms
+                Speed: 0.5ms preprocess, 50.4ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_37_29_218.png: 640x640 2
+                PlasticBottles, 1 VacuumCup, 57.8ms
+                Speed: 0.6ms preprocess, 57.8ms inference, 0.6ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_34_46_343.png: 640x512 1 CartonDrinks,
+                50.0ms
+                Speed: 0.3ms preprocess, 50.0ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_01_23_375.png: 640x448 1 VacuumCup,
+                46.4ms
+                Speed: 0.4ms preprocess, 46.4ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_39_14_921.png: 640x544 (no
+                detections), 51.2ms
+                Speed: 0.5ms preprocess, 51.2ms inference, 0.2ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_34_26_078.png: 544x640 1 blade, 1
+                GlassBottle, 1 Tin, 51.2ms
+                Speed: 0.3ms preprocess, 51.2ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_35_27_000.png: 640x448 1 GlassBottle,
+                45.7ms
+                Speed: 0.4ms preprocess, 45.7ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_08_53_828.png: 640x448 1 VacuumCup,
+                46.1ms
+                Speed: 0.3ms preprocess, 46.1ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_35_15_750.png: 640x640 2
+                PlasticBottles, 60.2ms
+                Speed: 0.5ms preprocess, 60.2ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_04_03_468.png: 640x480 1
+                PlasticBottle, 2 GlassBottles, 49.4ms
+                Speed: 0.2ms preprocess, 49.4ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_30_26_015.png: 480x640 1
+                PlasticBottle, 47.1ms
+                Speed: 0.4ms preprocess, 47.1ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_10_46_125.png: 640x640 1
+                PlasticBottle, 1 GlassBottle, 58.5ms
+                Speed: 0.5ms preprocess, 58.5ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_29_12_328.png: 640x448 1
+                PlasticBottle, 47.3ms
+                Speed: 0.4ms preprocess, 47.3ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_42_09_640.png: 640x576 2
+                PlasticBottles, 54.1ms
+                Speed: 0.5ms preprocess, 54.1ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_27_15_406.png: 640x640 1 VacuumCup,
+                59.3ms
+                Speed: 0.4ms preprocess, 59.3ms inference, 0.7ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_34_30_359.png: 640x512 1 VacuumCup,
+                51.2ms
+                Speed: 0.3ms preprocess, 51.2ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_21_31_109.png: 640x512 1
+                PlasticBottle, 1 VacuumCup, 49.9ms
+                Speed: 0.3ms preprocess, 49.9ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_40_11_578.png: 448x640 1
+                PlasticBottle, 44.3ms
+                Speed: 0.3ms preprocess, 44.3ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_24_05_796.png: 640x480 1
+                PlasticBottle, 1 VacuumCup, 47.6ms
+                Speed: 0.3ms preprocess, 47.6ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_16_22_140.png: 640x608 1 VacuumCup,
+                57.1ms
+                Speed: 0.4ms preprocess, 57.1ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_34_11_093.png: 608x640 2 VacuumCups,
+                56.4ms
+                Speed: 0.6ms preprocess, 56.4ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_53_58_515.png: 640x576 1
+                PlasticBottle, 53.9ms
+                Speed: 0.5ms preprocess, 53.9ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_39_00_906.png: 640x608 1
+                PlasticBottle, 55.7ms
+                Speed: 0.4ms preprocess, 55.7ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_21_39_734.png: 640x448 (no
+                detections), 46.5ms
+                Speed: 0.4ms preprocess, 46.5ms inference, 0.2ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_17_30_203.png: 480x640 (no
+                detections), 46.2ms
+                Speed: 0.4ms preprocess, 46.2ms inference, 0.2ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_05_01_265.png: 640x512 1
+                PlasticBottle, 1 VacuumCup, 49.0ms
+                Speed: 0.5ms preprocess, 49.0ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_18_54_718.png: 640x416 1
+                PlasticBottle, 42.1ms
+                Speed: 0.5ms preprocess, 42.1ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_20_27_625.png: 640x608 1 VacuumCup,
+                56.0ms
+                Speed: 0.4ms preprocess, 56.0ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_07_16_750.png: 640x480 1
+                PlasticBottle, 48.7ms
+                Speed: 0.4ms preprocess, 48.7ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_36_31_359.png: 640x480 1 SprayCans,
+                49.3ms
+                Speed: 0.3ms preprocess, 49.3ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_22_00_718.png: 640x416 1
+                PlasticBottle, 44.6ms
+                Speed: 0.4ms preprocess, 44.6ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_36_35_437.png: 640x576 2
+                PlasticBottles, 58.2ms
+                Speed: 0.4ms preprocess, 58.2ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_26_20_468.png: 512x640 2
+                PlasticBottles, 54.0ms
+                Speed: 0.5ms preprocess, 54.0ms inference, 0.6ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_36_19_859.png: 640x576 1
+                PlasticBottle, 55.4ms
+                Speed: 0.6ms preprocess, 55.4ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_57_18_062.png: 640x608 1
+                PlasticBottle, 1 Tin, 54.9ms
+                Speed: 0.4ms preprocess, 54.9ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_44_36_406.png: 640x640 1 VacuumCup,
+                59.7ms
+                Speed: 0.6ms preprocess, 59.7ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_34_26_437.png: 640x512 2
+                PlasticBottles, 49.7ms
+                Speed: 0.4ms preprocess, 49.7ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_11_26_984.png: 640x448 1 VacuumCup,
+                44.2ms
+                Speed: 0.3ms preprocess, 44.2ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_25_25_875.png: 384x640 2
+                PlasticBottles, 1 GlassBottle, 1 SprayCans, 38.0ms
+                Speed: 0.3ms preprocess, 38.0ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_18_52_203.png: 640x512 1 GlassBottle,
+                50.0ms
+                Speed: 0.4ms preprocess, 50.0ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_38_07_187.png: 640x480 1 VacuumCup,
+                49.0ms
+                Speed: 0.5ms preprocess, 49.0ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_08_11_953.png: 480x640 1
+                PlasticBottle, 49.2ms
+                Speed: 0.4ms preprocess, 49.2ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_16_51_046.png: 640x544 (no
+                detections), 51.0ms
+                Speed: 0.3ms preprocess, 51.0ms inference, 0.2ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_18_00_656.png: 640x512 1
+                PlasticBottle, 48.2ms
+                Speed: 0.5ms preprocess, 48.2ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_02_29_234.png: 640x448 1
+                PlasticBottle, 1 Cans, 45.4ms
+                Speed: 0.4ms preprocess, 45.4ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_43_36_890.png: 640x608 1 CartonDrinks,
+                56.3ms
+                Speed: 0.4ms preprocess, 56.3ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_04_23_906.png: 640x640 1
+                PlasticBottle, 1 VacuumCup, 58.7ms
+                Speed: 0.6ms preprocess, 58.7ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_21_50_890.png: 640x640 1 VacuumCup,
+                59.3ms
+                Speed: 0.5ms preprocess, 59.3ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_26_24_859.png: 640x544 1 VacuumCup,
+                51.8ms
+                Speed: 0.4ms preprocess, 51.8ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_15_33_859.png: 640x608 1
+                PlasticBottle, 2 VacuumCups, 56.2ms
+                Speed: 0.4ms preprocess, 56.2ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_01_14_640.png: 640x640 1
+                PlasticBottle, 59.6ms
+                Speed: 0.5ms preprocess, 59.6ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_20_24_500.png: 640x512 1
+                PlasticBottle, 1 SprayCans, 49.3ms
+                Speed: 0.5ms preprocess, 49.3ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_35_08_734.png: 640x480 1
+                PlasticBottle, 1 VacuumCup, 46.9ms
+                Speed: 0.4ms preprocess, 46.9ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_25_28_640.png: 640x448 (no
+                detections), 45.1ms
+                Speed: 0.3ms preprocess, 45.1ms inference, 0.2ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_43_26_078.png: 640x512 1
+                PlasticBottle, 48.7ms
+                Speed: 0.4ms preprocess, 48.7ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_10_29_390.png: 640x544 1
+                PlasticBottle, 1 Tin, 50.3ms
+                Speed: 0.5ms preprocess, 50.3ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_39_10_359.png: 640x480 (no
+                detections), 46.8ms
+                Speed: 0.5ms preprocess, 46.8ms inference, 0.2ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_25_25_703.png: 640x640 1
+                PlasticBottle, 2 VacuumCups, 59.1ms
+                Speed: 0.6ms preprocess, 59.1ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_09_54_890.png: 480x640 2
+                PlasticBottles, 1 Tin, 46.5ms
+                Speed: 0.4ms preprocess, 46.5ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_35_21_953.png: 640x608 1
+                PlasticBottle, 1 GlassBottle, 55.5ms
+                Speed: 0.5ms preprocess, 55.5ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_50_57_046.png: 640x576 1 VacuumCup, 2
+                GlassBottles, 52.5ms
+                Speed: 0.5ms preprocess, 52.5ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_03_51_781.png: 640x480 1
+                PlasticBottle, 46.5ms
+                Speed: 0.3ms preprocess, 46.5ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_36_57_375.png: 640x480 1
+                PlasticBottle, 47.7ms
+                Speed: 0.4ms preprocess, 47.7ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_30_44_281.png: 640x512 1 VacuumCup,
+                49.2ms
+                Speed: 0.4ms preprocess, 49.2ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_14_57_437.png: 640x416 1 SprayCans,
+                41.8ms
+                Speed: 0.4ms preprocess, 41.8ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_05_35_031.png: 640x480 1 VacuumCup,
+                46.0ms
+                Speed: 0.4ms preprocess, 46.0ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_29_34_453.png: 352x640 1
+                PlasticBottle, 1 VacuumCup, 36.9ms
+                Speed: 0.3ms preprocess, 36.9ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_01_26_171.png: 640x416 1 VacuumCup, 1
+                Tin, 41.9ms
+                Speed: 0.2ms preprocess, 41.9ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_19_29_375.png: 640x640 1 blade, 1
+                VacuumCup, 59.2ms
+                Speed: 0.4ms preprocess, 59.2ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_24_34_859.png: 640x416 2
+                PlasticBottles, 42.2ms
+                Speed: 0.2ms preprocess, 42.2ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_22_43_109.png: 640x480 1
+                PlasticBottle, 1 VacuumCup, 45.6ms
+                Speed: 0.2ms preprocess, 45.6ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_47_09_843.png: 640x512 1
+                PlasticBottle, 1 SprayCans, 49.8ms
+                Speed: 0.3ms preprocess, 49.8ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_20_03_968.png: 640x512 1 Cans, 2
+                GlassBottles, 48.2ms
+                Speed: 0.5ms preprocess, 48.2ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_27_52_531.png: 480x640 2
+                PlasticBottles, 46.0ms
+                Speed: 0.4ms preprocess, 46.0ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_18_39_468.png: 416x640 1 VacuumCup,
+                42.0ms
+                Speed: 0.3ms preprocess, 42.0ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_19_51_671.png: 640x448 1
+                PlasticBottle, 1 VacuumCup, 43.8ms
+                Speed: 0.4ms preprocess, 43.8ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_24_37_796.png: 384x640 1 VacuumCup,
+                36.3ms
+                Speed: 0.3ms preprocess, 36.3ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_42_43_437.png: 640x640 1
+                PlasticBottle, 56.4ms
+                Speed: 0.4ms preprocess, 56.4ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_37_49_703.png: 640x384 1
+                PlasticBottle, 37.0ms
+                Speed: 0.4ms preprocess, 37.0ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_41_55_531.png: 640x608 1 blade, 1
+                VacuumCup, 54.3ms
+                Speed: 0.4ms preprocess, 54.3ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_31_34_968.png: 640x608 2
+                PlasticBottles, 1 Cans, 52.8ms
+                Speed: 0.4ms preprocess, 52.8ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_08_28_000.png: 640x640 1
+                PlasticBottle, 1 VacuumCup, 1 CartonDrinks, 55.7ms
+                Speed: 0.5ms preprocess, 55.7ms inference, 0.5ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_30_14_000.png: 640x608 1
+                PlasticBottle, 53.0ms
+                Speed: 0.5ms preprocess, 53.0ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_47_16_546.png: 640x576 1 scissors,
+                50.2ms
+                Speed: 0.4ms preprocess, 50.2ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_06_26_21_562.png: 640x576 1 VacuumCup,
+                51.7ms
+                Speed: 0.5ms preprocess, 51.7ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_57_27_218.png: 544x640 1
+                PlasticBottle, 1 VacuumCup, 1 GlassBottle, 49.2ms
+                Speed: 0.3ms preprocess, 49.2ms inference, 0.4ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_37_48_265.png: 640x640 1 VacuumCup,
+                57.5ms
+                Speed: 0.6ms preprocess, 57.5ms inference, 0.6ms postprocess per image at shape (1, 3, 640, 640)
+
+                image 1/1 /Users/yemaoluo/Documents/CODING/DIAD/results/Result_05_36_50_031.png: 640x544 (no
+                detections), 50.6ms
+                Speed: 0.5ms preprocess, 50.6ms inference, 0.2ms postprocess per image at shape (1, 3, 640, 640)
                 <br/></div>
         </td>
     </tr>
