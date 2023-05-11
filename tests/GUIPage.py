@@ -208,6 +208,18 @@ class FrameRange(QMainWindow):
         self.close()
 
 
+def test():
+    p = ImageGrab.grab()  # 获得当前屏幕
+    screen_w, screen_h = p.size  # 获得当前屏幕的大小
+    app = QApplication(sys.argv)
+    startwindow = StartWindow()
+    startwindow.show()
+    selectwindow = FrameRange(startwindow)
+    selectwindow.hide()
+    sys.exit(app.exec_())
+    return startwindow
+
+
 if __name__ == '__main__':
     p = ImageGrab.grab()  # 获得当前屏幕
     screen_w, screen_h = p.size  # 获得当前屏幕的大小
