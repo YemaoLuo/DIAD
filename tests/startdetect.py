@@ -366,7 +366,6 @@ class MainWindow(QWidget):
             label.setFont(self.font)
             self.detected_objects_layout.addWidget(label)
 
-
 if __name__ == '__main__':
     app = QApplication([])
     x1, y1, x2, y2 = 900, 20, 1800, 820  # Define your region here
