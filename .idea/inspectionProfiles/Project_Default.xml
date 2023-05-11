@@ -1,14 +1,50 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="64" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="20">
+            <item index="0" class="java.lang.String" itemvalue="scipy" />
+            <item index="1" class="java.lang.String" itemvalue="EasyProcess" />
+            <item index="2" class="java.lang.String" itemvalue="packaging" />
+            <item index="3" class="java.lang.String" itemvalue="PyQt5-sip" />
+            <item index="4" class="java.lang.String" itemvalue="torch" />
+            <item index="5" class="java.lang.String" itemvalue="numpy" />
+            <item index="6" class="java.lang.String" itemvalue="torchvision" />
+            <item index="7" class="java.lang.String" itemvalue="ultralytics" />
+            <item index="8" class="java.lang.String" itemvalue="pandas" />
+            <item index="9" class="java.lang.String" itemvalue="fonttools" />
+            <item index="10" class="java.lang.String" itemvalue="pyscreenshot" />
+            <item index="11" class="java.lang.String" itemvalue="PyQt5-Qt5" />
+            <item index="12" class="java.lang.String" itemvalue="regex" />
+            <item index="13" class="java.lang.String" itemvalue="pyqtgraph" />
+            <item index="14" class="java.lang.String" itemvalue="sentry-sdk" />
+            <item index="15" class="java.lang.String" itemvalue="colorama" />
+            <item index="16" class="java.lang.String" itemvalue="PyQt5" />
+            <item index="17" class="java.lang.String" itemvalue="entrypoint2" />
+            <item index="18" class="java.lang.String" itemvalue="pytz" />
+            <item index="19" class="java.lang.String" itemvalue="Pillow" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
     <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
       <option name="ignoredErrors">
         <list>
           <option value="N802" />
           <option value="N803" />
           <option value="N806" />
+          <option value="N801" />
         </list>
       </option>
     </inspection_tool>
+    <inspection_tool class="PyTypeCheckerInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyUnreachableCodeInspection" enabled="false" level="WARNING" enabled_by_default="false" />
   </profile>
 </component>
